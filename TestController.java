@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(value = "http://127.0.0.1:5500",allowCredentials = "true")
@@ -15,10 +16,14 @@ public class TestController {
     LvliRepository lvliRepository;
     @RequestMapping(value = "/addlvli")
     public void addlvli(String lvli){
-       Lvli lvli1=new Lvli("18",lvli);
+       Lvli lvli1=new Lvli("180020900",lvli);
        this.lvliRepository.save(lvli1);
     }
+    @RequestMapping(value = "/lvlilist")
+    public List<Lvli> addlvli() {
 
+        return this.lvliRepository.findAll();
+    }
     @RequestMapping(value="/userinfo")
     public Map<String,String> userinfo(HttpSession httpSession){
         Map<String,String> resultMap=new HashMap<>();

@@ -15,6 +15,10 @@ public class Lvli {
 
     private String url;
 
+    public Lvli(){
+
+    }
+
     public Long getId(){
         return id;
     }
